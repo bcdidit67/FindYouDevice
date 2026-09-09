@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Material3 动态颜色主题：深色模式（夜晚），父主题自动跟随系统外观 -->
+    <style name="Theme.FindYouDevice" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- 使用与浅色版本同源但语义正确。同时保证 ic_launcher_background 足够醒目 -->
+        <item name="colorPrimary">@color/ic_launcher_background</item>
+        <item name="colorOnPrimary">@color/white</item>
+    </style>
+</resources>

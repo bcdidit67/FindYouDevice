@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Material3 动态颜色主题：浅色模式。系统提供动态配色(Material You)。
+         在首次启动模式选择/设置切换前优先用于占位；仅在 API<31 时回落固定调色板。 -->
+
+    <!-- 强制动态颜色颜色——在 Android 12+ 上自动使用系统壁纸色调 -->
+    <style name="Theme.FindYouDevice" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/ic_launcher_background</item>
+        <item name="colorOnPrimary">@color/white</item>
+    </style>
+</resources>
