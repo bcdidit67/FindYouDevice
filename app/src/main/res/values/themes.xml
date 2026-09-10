@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Material3 动态颜色主题：浅色模式。
+         通过 DynamicColors.applyToActivitiesIfAvailable() 在 Android 12+ 自动启用
+         系统壁纸色调（Material You / Monet 引擎），API < 31 时回落默认 M3 调色板。 -->
+    <style name="Theme.FindYouDevice" parent="Theme.Material3.DayNight.NoActionBar" />
+</resources>

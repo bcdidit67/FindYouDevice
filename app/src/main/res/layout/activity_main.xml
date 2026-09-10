@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="?attr/colorSurface">
+
+    <!-- 顶部：始终可见的工具条（设备图标 + 应用标题） + 状态 Chip 行 -->
+    <LinearLayout
+        android:id="@+id/toolbarArea"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="?attr/colorSurface">
+
+        <!-- 第 1 行：设备图标 + 标题。整行可点：点击弹出版本号 Toast。
+             模式角标 / IP 放第 2 行 Chip 组 -->
+        <LinearLayout
+            android:id="@+id/headerRow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingHorizontal="16dp"
+            android:paddingTop="12dp"
+            android:paddingBottom="4dp">
+
+            <!-- 设备图标（Material 语义图标，颜色随动态主题） -->
+            <ImageView
+                android:id="@+id/ivDeviceIcon"
+                android:layout_width="26dp"
+                android:layout_height="26dp"
+                android:layout_marginEnd="12dp"
+                android:src="@drawable/ic_target"
+                app:tint="?attr/colorPrimary"
+                android:contentDescription="@null" />
+
+            <TextView
+                android:id="@+id/tvTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/app_name"
+                android:textAppearance="?attr/textAppearanceTitleLarge"
+                android:textStyle="bold"
+                android:textColor="?attr/colorOnSurface" />
+
+        </LinearLayout>
+
+        <!-- 第 2 行：模式角标 Chip | 本机局域网 IP Chip -->
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/chipGroup"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="16dp"
+            android:paddingBottom="8dp"
+            app:chipSpacingHorizontal="8dp">
+
+            <!-- 模式角标 Chip：主机/客户端，点击弹出「切换模式」选择弹窗 -->
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipMode"
+                style="@style/Widget.Material3.Chip.Assist"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checkable="false"
+                app:chipIcon="@drawable/ic_desktop"
+                app:chipIconTint="?attr/colorOnSurfaceVariant"
+                app:chipIconSize="18dp" />
+
+            <!-- 本机局域网 IP -->
+            <com.google.android.material.chip.Chip
+                android:id="@+id/chipIp"
+                style="@style/Widget.Material3.Chip.Assist"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checkable="false"
+                app:chipIcon="@drawable/ic_wifi"
+                app:chipIconTint="?attr/colorOnSurfaceVariant"
+                app:chipIconSize="18dp" />
+
+        </com.google.android.material.chip.ChipGroup>
+    </LinearLayout>
+
+    <!-- 分隔线 -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="?attr/colorOutlineVariant" />
+
+    <!-- 模式内容区：由 ClientFragment / HostFragment 在此替换 -->
+    <FrameLayout
+        android:id="@+id/fragmentContainer"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+</LinearLayout>

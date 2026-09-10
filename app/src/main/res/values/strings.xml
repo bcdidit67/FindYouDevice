@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Find You Device</string>
+
+    <!-- 启动模式选择 -->
+    <string name="mode_pick_title">请选择使用模式</string>
+    <string name="mode_host">主机模式（需 Root）</string>
+    <string name="mode_client">客户端模式（免 Root）</string>
+
+    <!-- 主机模式 -->
+    <string name="host_title">主机模式</string>
+    <string name="web_service_switch">启 动 Web 服务</string>
+    <string name="password_change">修改密码</string>
+    <string name="password_save">保存</string>
+    <string name="find_record">上次被查找时间</string>
+    <string name="mode_badge_host">主机</string>
+    <string name="mode_badge_client">客户端</string>
+
+    <!-- OOBE 首启引导 -->
+    <string name="oobe_skip">跳过</string>
+    <string name="oobe_next">下一步</string>
+    <string name="oobe_start">开始使用</string>
+    <string name="oobe_p1_title">局域网一键查找</string>
+    <string name="oobe_p1_desc">两台设备连入同一 WiFi 即可互找。客户端自动扫描网段，发现目标后一键触发响铃报警。</string>
+    <string name="oobe_p2_title">主机模式 · 远程触发</string>
+    <string name="oobe_p2_desc">开启主机 Web 服务后后台常驻、息屏也能响应：局域网内任意浏览器输入密码即可触发报警。</string>
+    <string name="oobe_p3_title">清晰报警 · 触发方掌控</string>
+    <string name="oobe_p3_desc">报警默认使用应用内置音源，不依赖系统闹钟。响铃时长、闪光与锁定查找均由触发方决定，可随时停止。</string>
+</resources>
