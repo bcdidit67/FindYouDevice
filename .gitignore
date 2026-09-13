@@ -1,0 +1,26 @@
+# Gradle / Android 构建产物
+.gradle/
+build/
+*/build/
+local.properties
+captures/
+.externalNativeBuild/
+.cxx/
+
+# 本地备份 / 平台运行残留
+.backup/
+.operit/
+
+# 签名与密钥
+*.jks
+*.keystore
+
+# APK 及临时安装包
+*.apk
+
+# 未在 README 引用的设备截图（含浏览器界面等潜在隐私画面）
+screenshots/Screenshot_*.jpg
+
+# IDE
+.idea/
+*.iml

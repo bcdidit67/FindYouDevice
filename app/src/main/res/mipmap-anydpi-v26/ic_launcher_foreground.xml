@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!-- 简易放大镜/定位图标，从中心描绘 -->
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M54,30a18,18 0 1,0 0.001,0z" />
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M54,38a10,10 0 1,0 0.001,0z" />
+</vector>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="ic_launcher_background">#3F51B5</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <!-- 在线/离线状态圆点色（客户端卡片），以语义命名并支持深浅色无需切换 -->
+    <color name="status_online">#FF34A853</color>
+    <color name="status_offline">#FF9AA0A6</color>
+</resources>
