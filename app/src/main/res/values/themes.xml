@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Material3 动态颜色主题：浅色模式。
+         通过 DynamicColors.applyToActivitiesIfAvailable() 在 Android 12+ 自动启用
+         系统壁纸色调（Material You / Monet 引擎），API < 31 时回落默认 M3 调色板。 -->
+    <style name="Theme.FindYouDevice" parent="Theme.Material3.DayNight.NoActionBar" />
+    <!-- MIUI X 风格主题：固定小米配色（#FF3382FF），供 XML 页面随风格切换 -->
+    <style name="Theme.FindYouDevice.Miuix" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">#FF3382FF</item>
+        <item name="colorOnPrimary">#FFFFFFFF</item>
+        <item name="colorPrimaryContainer">#FF5D9BFF</item>
+        <item name="colorOnPrimaryContainer">#FFFFFFFF</item>
+        <item name="colorSecondaryContainer">#FFD6E4FF</item>
+        <item name="colorOnSecondaryContainer">#FF1A1A1A</item>
+        <item name="colorSecondary">#FF6B6B6B</item>
+        <item name="colorOnSecondary">#FFFFFFFF</item>
+        <item name="colorSurface">#FFFFFFFF</item>
+        <item name="colorOnSurface">#FF1A1A1A</item>
+        <item name="colorSurfaceVariant">#FFF0F1F5</item>
+        <item name="colorOnSurfaceVariant">#FF6B6B6B</item>
+        <item name="colorOutlineVariant">#FFE4E4E4</item>
+        <item name="colorSurfaceContainer">#FFFFFFFF</item>
+        <item name="colorSurfaceContainerLow">#FFFFFFFF</item>
+        <item name="colorSurfaceContainerHigh">#FFF7F8FA</item>
+        <item name="colorSurfaceContainerHighest">#FFEDEEF2</item>
+        <item name="colorOnBackground">#FF1A1A1A</item>
+        <item name="android:colorBackground">#FFF3F4F8</item>
+    </style>
+</resources>

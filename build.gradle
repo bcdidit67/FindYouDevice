@@ -1,0 +1,7 @@
+// 顶层构建文件：仅为所有子模块定义插件版本，不在此配置依赖。
+plugins {
+    id 'com.android.application' version '9.3.2' apply false
+    id 'org.jetbrains.kotlin.android' version '2.3.21' apply false
+    id 'org.jetbrains.kotlin.kapt' version '2.3.21' apply false
+    id 'org.jetbrains.kotlin.plugin.compose' version '2.3.21' apply false
+}
