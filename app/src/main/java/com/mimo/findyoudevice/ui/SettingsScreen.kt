@@ -292,15 +292,9 @@ fun SettingsApp(
                     )
                     FydItemRow(
                         title = "联系作者 · QQ",
-                        subtitle = "3891605032",
+                        subtitle = "3891605032（点击复制）",
                         showArrow = true,
-                        onClick = {
-                            openUrl(
-                                context,
-                                "https://wpa.qq.com/msgrd?v=3&uin=3891605032&site=qq&menu=yes",
-                                fallbackTip = "QQ 号：3891605032",
-                            )
-                        },
+                        onClick = { copyText(context, "QQ 号", "3891605032") },
                     )
                     FydItemRow(
                         title = "联系作者 · 邮箱",
@@ -624,5 +618,17 @@ private fun openUrl(context: android.content.Context, url: String, fallbackTip: 
     }.onFailure {
         val msg = fallbackTip?.let { "无法打开链接，$it" } ?: "无法打开链接：$url"
         android.widget.Toast.makeText(context, msg, android.widget.Toast.LENGTH_LONG).show()
+    }
+}
+
+/** 复制文本到剪贴板并提示（QQ 号等） */
+private fun copyText(context: android.content.Context, label: String, text: String) {
+    runCatching {
+        val cm = context.getSystemService(android.content.Context.CLIPBOARD_SERVICE)
+            as? android.content.ClipboardManager
+        cm?.setPrimaryClip(android.content.ClipData.newPlainText(label, text))
+        android.widget.Toast.makeText(context, "已复制 $label：$text", android.widget.Toast.LENGTH_SHORT).show()
+    }.onFailure {
+        android.widget.Toast.makeText(context, "$label：$text", android.widget.Toast.LENGTH_LONG).show()
     }
 }
