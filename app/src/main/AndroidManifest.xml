@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!--
+        权限集合说明：
+        - 不申请任何定位权限：扫描局域网采用纯 Socket/网卡枚举，无需位置；
+        - CAMERA：仅用于报警闪光灯闪烁（Camera2 setTorchMode 免 Root 路径），
+          运行时申请；拒绝授权时自动降级 Root sysfs 或跳过，不影响其余功能；
+        - READ_MEDIA_AUDIO / READ_EXTERNAL_STORAGE：用于播放用户自选的报警铃声，
+          Android13+ 读取媒体库需要；未授权时自动降级播放内置报警音。
+    -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- 报警闪光灯：免 Root 的 Camera2 手电闪烁（拒绝时降级 Root sysfs） -->
+    <uses-permission android:name="android.permission.CAMERA" />
+    <!-- 声明闪光灯硬件可选：无闪光灯的机型安装不受限 -->
+    <uses-feature
+        android:name="android.hardware.camera.flash"
+        android:required="false" />
+    <!-- 前台服务通知所需 -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <!-- 前台服务类型为 specialUse 时的运行权限 -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE" />
+    <!-- Web 服务/扫描期间保持 CPU 唤醒 -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <!-- 局域网组播可用性保持（客户端扫描用，可选加固） -->
+    <uses-permission android:name="android.permission.CHANGE_WIFI_MULTICAST_STATE" />
+    <!-- 获取活跃网段以推导扫描 IP 范围 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <!-- 播放用户自选报警铃声：Android 13+ 用媒体音频权限；12 及以下用外部存储 -->
+    <uses-permission android:name="android.permission.READ_MEDIA_AUDIO" />
+    <uses-permission
+        android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32" />
+    <!-- 振动（报警叠加振动提示） -->
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+    <application
+        android:name=".MainApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:usesCleartextTraffic="true"
+        android:theme="@style/Theme.FindYouDevice">
+
+        <!-- 主承载 Activity（客户端/主机 Fragment + 双模切换），作为程序主入口 -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- 首启 OOBE 引导页（仅新装/未完成引导时进入） -->
+        <activity
+            android:name=".OnboardingActivity"
+            android:exported="false"
+            android:noHistory="true" />
+
+<!-- 首启模式选择页（主机/客户端） -->
+        <activity
+            android:name=".ModeSelectionActivity"
+            android:exported="false"
+            android:noHistory="true" />
+
+        <!-- 主机端运行 NanoHTTPD 的前台服务。type=specialUse 需配合子类声明
+             FOREGROUND_SERVICE_SPECIAL_USE 权限及 property 子类型 -->
+        <service
+            android:name=".HostService"
+            android:exported="false"
+            android:foregroundServiceType="specialUse">
+            <property
+                android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE"
+                android:value="host_lan_web_server" />
+        </service>
+    </application>
+</manifest>
