@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingHorizontal="24dp"
+    android:paddingTop="12dp"
+    android:paddingBottom="4dp">
+
+    <!-- 易记名称（非空校验） -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilDialogAlias"
+        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="易记名称（如：客厅主机）">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etDialogAlias"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:imeOptions="actionNext" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- IP 地址（手动添加时可见；编辑别名时隐藏） -->
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tilDialogIp"
+        style="@style/Widget.Material3.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:hint="IP 地址（如 192.168.1.22）">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etDialogIp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:digits="0123456789."
+            android:imeOptions="actionDone" />
+    </com.google.android.material.textfield.TextInputLayout>
+</LinearLayout>
